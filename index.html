@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morso – חפצים יצוקים לבית</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="חפצים לבית, יצוקים ביד מבטון פולימרי. הקטלוג המלא בוואטסאפ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=IBM+Plex+Sans+Hebrew:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E6E4DF}
+a{color:#2B2C29}a:hover{color:#5F5E59}
+a:focus-visible{outline:2px solid #2B2C29;outline-offset:4px}
+.cta:hover{background:#45463F !important}
+.cta-light:hover{background:#D6D3CC !important}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+/* Hero: full screen on wide screens, edge-to-edge 4:5 on phones and portrait screens.
+   The CTA is on screen from the first second; the site continues directly below. */
+.hero-wrap{position:relative}
+.hero{position:relative;height:100vh;height:100svh;overflow:hidden;background:#CBCBC8}
+.hero video,.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero video{pointer-events:none}
+/* iPhone draws its own round play button on a video it was not allowed to start: hide it */
+.hero video::-webkit-media-controls-start-playback-button{display:none !important;-webkit-appearance:none}
+.hero video::-webkit-media-controls{display:none !important}
+.hero .hero-mobile,.hero .hero-still{display:none}
+.hero-cta{position:absolute;inset-inline:0;bottom:0;max-width:1280px;margin:0 auto;box-sizing:border-box;padding:0 clamp(20px,4vw,48px) clamp(28px,5vh,56px);display:flex;justify-content:flex-start;pointer-events:none}
+.hero-cta .cta{pointer-events:auto}
+.hero-cue{position:absolute;left:50%;bottom:18px;width:1px;height:44px;background:rgba(43,44,41,.5);transform-origin:top;animation:cue 2.6s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:0}35%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+@media (max-width:720px),(max-aspect-ratio:1/1){
+  .hero{width:100%;height:auto;aspect-ratio:4/5;max-height:calc(100svh - 92px)}  /* the CTA below always fits on the first screen */
+  .hero .hero-desktop{display:none}
+  .hero .hero-mobile{display:block}
+  .hero-cue{display:none}
+  .hero-cta{position:static;padding:20px clamp(20px,4vw,48px) 0}
+  .hero-cta .cta{flex:1;justify-content:center}
+}
+/* Footer social links: icon above the name, drawn in the footer's own concrete tone (currentColor)
+   as thin line marks to match the line-drawn logo; the whole block is the link */
+.social{display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 4px;color:#C3C0B8;text-decoration:none;font-size:14px;transition:color .2s}
+.social:hover{color:#E6E4DF}
+.social svg{width:28px;height:28px;display:block;transition:transform .2s}
+.social:hover svg{transform:translateY(-2px)}
+footer a:focus-visible{outline-color:#E6E4DF}
+@media (prefers-reduced-motion:reduce){
+  .social svg{transition:none}
+  .social:hover svg{transform:none}
+  .hero video{display:none !important}
+  .hero .hero-still{display:block}
+  .hero-cue{animation:none;opacity:.6}
+}
+</style>
+</head>
+<body>
+<div style="direction: rtl; font-family: 'IBM Plex Sans Hebrew', sans-serif; color: #2B2C29; background: #E6E4DF; min-height: 100vh">
+
+  <main>
+    <section class="hero-wrap" aria-label="פתיחה">
+      <div class="hero">
+        <!-- Footage is AI-generated (see hero/README.md): never caption it as the studio.
+             The first frame sits underneath as a picture (one file per screen, also the no-JS fallback).
+             The videos carry data-src only, so nothing downloads until the script picks the one on screen. -->
+        <picture class="hero-poster">
+          <source media="(max-width: 720px), (max-aspect-ratio: 1/1)" srcset="assets/video/morso-hero-poster-mobile.jpg">
+          <img src="assets/video/morso-hero-poster-desktop.jpg" alt="" fetchpriority="high">
+        </picture>
+        <video class="hero-desktop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback>
+          <source data-src="assets/video/morso-hero-desktop-logo.webm" type="video/webm">
+          <source data-src="assets/video/morso-hero-desktop-logo.mp4" type="video/mp4">
+        </video>
+        <video class="hero-mobile" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback>
+          <source data-src="assets/video/morso-hero-mobile-logo.mp4" type="video/mp4">
+        </video>
+        <picture class="hero-still">
+          <source media="(max-width: 720px), (max-aspect-ratio: 1/1)" srcset="assets/video/morso-hero-endcard-mobile.jpg">
+          <img src="assets/video/morso-hero-endcard-desktop.jpg" loading="lazy" alt="אגרטל עם פרחים יבשים, ולצדו הלוגו והמשפט: יש רק אחד כזה. והוא שלך.">
+        </picture>
+        <script>
+          /* Load and play only the video that is on screen. Reduced motion hides both (CSS), so
+             nothing loads and the end-card still shows. Save-Data: keep the first-frame picture. */
+          (function () {
+            if (navigator.connection && navigator.connection.saveData) return;
+            var live = [];
+            document.querySelectorAll('.hero video').forEach(function (v) {
+              if (getComputedStyle(v).display === 'none') return;
+              v.querySelectorAll('source').forEach(function (s) { s.src = s.getAttribute('data-src'); });
+              v.muted = true;
+              v.defaultMuted = true;
+              v.autoplay = true;
+              v.preload = 'auto';
+              v.setAttribute('webkit-playsinline', '');
+              v.load();
+              live.push(v);
+            });
+            if (!live.length) return;
+            /* Autoplay can be refused (iPhone Low Power Mode, in-app browsers, data saver): then the
+               first frame stays (no play button) and the video starts on the first touch or click.
+               Any other failed attempt (e.g. aborted while loading) retries once the video can play. */
+            var events = ['touchend', 'click', 'keydown'];
+            var done = function () { events.forEach(function (e) { document.removeEventListener(e, play, true); }); };
+            var play = function () {
+              live.forEach(function (v) {
+                if (!v.paused) return;
+                var p = v.play();
+                if (p && p.then) p.then(done, function (err) {
+                  if (err && err.name === 'NotAllowedError') return;
+                  v.addEventListener('canplay', function () { if (v.paused) { var q = v.play(); if (q && q.catch) q.catch(function () {}); } }, { once: true });
+                });
+              });
+            };
+            live.forEach(function (v) { v.addEventListener('playing', done); });
+            events.forEach(function (e) { document.addEventListener(e, play, { capture: true, passive: true }); });
+            document.addEventListener('visibilitychange', function () { if (!document.hidden) play(); });
+            play();
+          })();
+        </script>
+        <h1 class="sr-only">Morso – חפצים יצוקים לבית</h1>
+        <p class="sr-only">יש רק אחד כזה. והוא שלך.</p>
+        <span class="hero-cue" aria-hidden="true"></span>
+      </div>
+      <div class="hero-cta">
+        <a class="cta" href="https://wa.me/c/972512002662" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 28px; background: #2B2C29; color: #E6E4DF; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 2px; transition: background .2s">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"></path></svg>
+            לצפייה בקטלוג בוואטסאפ
+          </a>
+      </div>
+    </section>
+
+    <section aria-label="על החומר" style="max-width: 1280px; margin: 0 auto; padding: clamp(80px, 10vw, 136px) clamp(20px, 4vw, 48px) clamp(48px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: clamp(32px, 6vw, 96px); align-items: flex-start">
+      <h2 style="flex: 3 1 480px; margin: 0; font-family: 'Bellefair', serif; font-weight: 400; font-size: clamp(32px, 4vw, 56px); line-height: 1.22; max-width: 20ch">חפצים לבית, יצוקים ביד מבטון פולימרי</h2>
+      <div style="flex: 2 1 300px; display: flex; flex-direction: column; gap: 20px; padding-top: 12px; max-width: 46ch">
+        <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.75; color: #3A3B36">תהליך הייצור בסטודיו מבוסס על מלאכת יד מוקפדת ופרטנית. בשל תהליך היציקה והשיוף של הבטון הפולימרי אין שני פריטים זהים, ולכל כלי אופי ייחודי וטקסטורה משלו.</p>
+        <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.75; color: #3A3B36">בטון פולימרי הוא חומר צפוף ועמיד, עם המגע הקריר והמחוספס של אבן. נקודות קטנות בגוון, שינויי מרקם וקצוות רכים הם חלק מהיציקה, לא פגם בה.</p>
+        <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.75; color: #3A3B36">את כל הפריטים, המידות והמחירים ריכזנו בקטלוג אחד בוואטסאפ.</p>
+      </div>
+    </section>
+
+    <figure style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px)">
+      <img src="assets/flatlay.jpg" alt="קופסה מצולעת עם מכסה על מגש אובלי, פסלון זוג וכלי קטן לסוקולנט, יצוקים בגוון לבן מנוקד" style="width: 100%; aspect-ratio: 1300 / 550; object-fit: cover; display: block; border-radius: 2px">
+    </figure>
+
+    <section aria-label="מהקטלוג" style="max-width: 1280px; margin: 0 auto; padding: clamp(96px, 11vw, 152px) clamp(20px, 4vw, 48px) 0">
+      <h2 style="margin: 0 0 40px; font-family: 'Bellefair', serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px)">מהקטלוג</h2>
+      <div class="grid">
+        <img src="assets/products/01-tealight-holders.jpg" alt="שלושה פמוטים עגולים לנרות, בגוון לבן ובשיש אפור" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/02-arch-vases.jpg" alt="זוג אגרטלי קשת בגוון ורוד־חול" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/03-ribbed-vase-flowers.jpg" alt="אגרטל מצולע לבן עם פס אפור" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/04-pair-vases.jpg" alt="זוג אגרטלים בגוון שמנת עם מרקם שיש" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/05-bud-vases.jpg" alt="שלושה אגרטלונים קטנים בגווני חול ושמנת" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/06-donut-vases.jpg" alt="זוג אגרטלי טבעת בגוון בז'" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/07-figurine-heart-u.jpg" alt="פסלון זוג, לב עם פתח ואגרטל בצורת U" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+        <img src="assets/products/08-figurine-tray.jpg" alt="פסלון זוג ואגרטל מצולע על מגש" style="width: 100%; aspect-ratio: 438 / 494; object-fit: cover; display: block">
+      </div>
+      <p style="margin: 28px 0 0; font-size: 15px; color: #5F5E59">אלה רק חלק מהפריטים. <a href="https://wa.me/c/972512002662" target="_blank" rel="noopener" style="text-underline-offset: 5px; text-decoration-thickness: 1px">כל השאר נמצאים בקטלוג</a>.</p>
+    </section>
+
+    <section aria-label="איך מזמינים" style="max-width: 1280px; margin: 0 auto; padding: clamp(96px, 11vw, 152px) clamp(20px, 4vw, 48px) clamp(80px, 9vw, 128px)">
+      <h2 style="margin: 0 0 48px; font-family: 'Bellefair', serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px)">איך מזמינים</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid #A9A69E">
+        <li style="padding: 28px 0 28px 32px; display: flex; flex-direction: column; gap: 12px">
+          <span aria-hidden="true" style="font-family: 'Bellefair', serif; font-size: 44px; line-height: 1; color: #8A877F">א</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 26ch">פותחים את הקטלוג בוואטסאפ ומעיינים בפריטים.</p>
+        </li>
+        <li style="padding: 28px 0 28px 32px; display: flex; flex-direction: column; gap: 12px">
+          <span aria-hidden="true" style="font-family: 'Bellefair', serif; font-size: 44px; line-height: 1; color: #8A877F">ב</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 26ch">בוחרים פריט ושולחים לנו הודעה ישירות מתוך הקטלוג.</p>
+        </li>
+        <li style="padding: 28px 0 28px 32px; display: flex; flex-direction: column; gap: 12px">
+          <span aria-hidden="true" style="font-family: 'Bellefair', serif; font-size: 44px; line-height: 1; color: #8A877F">ג</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 26ch">חוזרים אליכם בהודעה כדי לסגור את פרטי ההזמנה.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer style="background: #33342F; color: #E6E4DF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(72px, 9vw, 120px) clamp(20px, 4vw, 48px) 32px; display: flex; flex-direction: column; gap: clamp(56px, 7vw, 96px)">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+        <p style="margin: 0; font-family: 'Bellefair', serif; font-size: clamp(32px, 4.4vw, 60px); line-height: 1.15; max-width: 16ch">הקטלוג המלא מחכה בוואטסאפ.</p>
+        <a class="cta-light" href="https://wa.me/c/972512002662" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 28px; background: #E6E4DF; color: #2B2C29; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 2px; transition: background .2s">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"></path></svg>
+          לצפייה בקטלוג בוואטסאפ
+        </a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid #5A5B55; font-size: 14px">
+        <img src="assets/logo-light.png" alt="Morso" style="height: 40px; width: auto; display: block">
+        <div style="display: flex; gap: 28px; align-items: center">
+          <a class="social" href="https://www.instagram.com/morso_81/" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5.4"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg>
+            אינסטגרם
+          </a>
+          <a class="social" href="https://wa.me/972512002662" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" transform="translate(0.96 0.96) scale(0.92)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            וואטסאפ
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
